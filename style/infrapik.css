@@ -1,0 +1,429 @@
+@import 'https://fonts.googleapis.com/css?family=Fira+Mono';
+*+* {
+    margin-top: 0.5em;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    font: normal 1em/1.25 "Fira Mono";
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+a {
+    color: currentColor;
+}
+
+.container {
+    text-align: center;
+}
+
+header {
+    text-align: left;
+    margin-left: 5px;
+    color: #d5d5d5;
+}
+
+header div {
+    display: inline;
+}
+
+header .resetBtn {
+    float: right;
+}
+
+video {
+    display: none;
+}
+
+.b-filter {
+    padding: 0.5em 1em; border-radius: 5px;
+    border: 1px solid rgb(27, 27, 29);      
+    background: rgb(60, 60, 60);         
+    
+}
+
+#filtersOutput {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    line-height: 22px;
+    color: #d5d5d5;
+}
+
+.c-color__value {
+    cursor: pointer;
+}
+
+#filtersOutput,
+.c-color {
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    background: rgb(60, 60, 60);
+    box-shadow: 0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30,0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15);
+}
+
+.c-color {
+    text-align: left;
+    width: 245px;
+}
+
+.sampleSize {
+    /* width: 450px; */
+    display: inline-block;
+    border: 1px solid rgb(41, 41, 41);
+    border-radius: 3px;
+}
+
+.imgBlock {
+    display: inline-block; margin: 10px;
+}
+
+.imgBox,
+.css-filters {
+    border-radius: 5px;
+    text-align: left;
+    display: inline-block; margin: 10px;
+    box-shadow: 0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30,0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15);
+    
+}
+
+.imgBox {
+    background: rgb(60, 60, 60);
+    /* border: 1px solid rgb(27, 27, 29); */
+    padding: 0.5em 0.9em;
+    box-shadow: 0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30,0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15);
+}
+
+
+.fxSliders .c-color {
+    width: 150px;
+}
+
+.mixFilters .c-color {
+    width: 200px;
+}
+
+.toolBtn {
+    border: 1px solid rgb(27, 27, 29);
+    padding: 1.2em 0.6em;
+    display: inline;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.imgBox span {
+    position: absolute;
+    font-size: 8px;
+    margin-left: 5px;
+    margin-top: -4px;
+    z-index: 12;
+}
+
+.sideFilters, .mixChannels {
+    display: inline-block;
+}
+
+.matrixFX {
+    display: none;
+}
+
+.file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.resetBtn {
+    background-color: rgb(60, 60, 60);
+    color: #d5d5d5;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px 12px;
+}
+
+.btn {
+    width: 140px;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    background-color: rgb(60, 60, 60);
+    color: #d5d5d5;
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30,0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15);
+}
+
+.btn input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+}
+
+.btn input[type=checkbox] + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    font-size: initial;
+}
+
+.btn input[type=checkbox] + label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    background: white;
+}
+
+
+.btn input[type=checkbox] + label:before {
+    background: rgb(37, 37, 39);
+}
+
+.btn input[type=checkbox]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 9px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+    transform: rotate(45deg);
+}
+
+.btn.playing {
+    background-color: rgb(255, 81, 0);
+}
+
+.resetBtn:hover,
+.btn:hover:not(.checkBtn) {
+    background-color: rgb(100, 100, 100);
+    color: white; 
+}
+
+.resetBtn:active,
+.btn:active:not(.checkBtn) {
+    background-color: rgb(150, 150, 150);
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1.1em;
+    background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    position: relative;
+    top: 50%;
+    height: 0.7em;
+    margin-top: -0.35em;
+    width: 2em;
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    cursor: pointer;
+    background: rgb(27, 27, 29);
+    border: none;
+    height: 0.5em;
+    border-radius: 5px;
+    transition: all 300ms ease-out;
+}
+input[type=range]:hover::-webkit-slider-runnable-track {
+    height: 1em;
+}
+
+input[type=range]:disabled{
+    opacity: 0.4;
+}
+
+canvas, img {
+    min-width: 300px;
+    max-width: 600px;
+    height:auto;
+}
+
+#hidden-canvas {
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font: normal 1em/1.25 "Fira Mono";
+    cursor: inherit;
+    line-height: inherit;
+    z-index: 1;
+    outline: none;
+    background-color:rgb(60, 60, 60);
+    color: white
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.select {
+    align-items: center;
+    position: relative;
+    min-width: 15ch;
+    max-width: 30ch;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: rgb(60, 60, 60);
+    box-shadow: 0 1px 1px rgba(16,27,30,0.15), 0 2px 2px rgba(16,27,30,0.15), 0 4px 4px rgba(16,27,30,0.15), 0 8px 8px rgba(16,27,30,0.15), 0 16px 16px rgba(16,27,30,0.15);
+
+}
+
+.select select, .select::after {
+    grid-area: select;
+}
+
+.select--disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    background-image: linear-gradient(to top, #ddd, #eee 33%);
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.select + label {
+    margin-top: 2rem;
+}
+
+.select option:not(.base) {
+    margin-top: 5px;
+    margin-left: -25px;
+}
+
+.leftBtn .btn {
+    width: 140px;
+}
+
+.btnGap {
+    margin-top: 15px;
+}
+
+#blendMix {
+    width: 120px;
+    height: 20px;
+}
+
+.blendDir {
+    display: inline-block;
+    min-width: inherit;
+}
+
+.blendDir select {
+    padding: 0px;
+}
+
+.linkedIn {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nomargin {
+    margin: 0px;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: "Fira Mono", Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog.active,
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}           
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: rgb(60, 60, 60);
+}
+
+.modalDialog .dialogFooter{
+    text-align: right;
+    padding: 10px 10px 0 0;
+}
+
+.modalDialog .dialogBtn {
+    text-decoration: none;
+    color: #d5d5d5;
+}
+
+.modalDialog .dialogBtn:hover {
+    color: #00d9ff;
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+.top-menu div {
+    display: inline-block;
+}
